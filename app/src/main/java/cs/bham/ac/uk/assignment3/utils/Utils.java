@@ -9,6 +9,7 @@ import org.json.JSONObject;
 import java.util.ArrayList;
 import java.util.List;
 
+import cs.bham.ac.uk.assignment3.bean.CookBookBean;
 import cs.bham.ac.uk.assignment3.bean.FoodBean;
 
 public class Utils {
@@ -18,6 +19,21 @@ public class Utils {
     public static ArrayList<FoodBean> getMockFoodList() {
         String foodListStr = ResourceUtils.readAssets2String("111.json");
         return jsonArray2FoodList(foodListStr);
+    }
+
+    public static CookBookBean getCookBookDetail() {
+        String jsonStr = ResourceUtils.readAssets2String("222.json");
+        CookBookBean cookBookBean = new CookBookBean();
+        try {
+            JSONObject object = new JSONObject(jsonStr);
+            cookBookBean.setId(object.optInt("id"));
+            cookBookBean.setDescription(object.optString("description"));
+            cookBookBean.setIngredients(object.getJSONArray("ingredients").join(",").split(","));
+            cookBookBean.setSteps(object.getJSONArray("steps").join(",").split(","));
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+        return cookBookBean;
     }
 
     public static ArrayList<FoodBean> jsonArray2FoodList(String jsonStr) {

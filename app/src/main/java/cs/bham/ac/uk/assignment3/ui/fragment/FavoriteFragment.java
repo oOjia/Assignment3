@@ -45,7 +45,7 @@ public class FavoriteFragment extends Fragment {
         layoutManager = new LinearLayoutManager(getActivity());
         rv_product_list.setLayoutManager(layoutManager);
         mFoodList = SPFoodManager.getFoodList();
-        foodAdapter = new FoodAdapter(mFoodList);
+        foodAdapter = new FoodAdapter(getActivity(), mFoodList);
         rv_product_list.setAdapter(foodAdapter);
         return view;
     }

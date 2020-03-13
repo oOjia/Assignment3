@@ -42,7 +42,7 @@ public class FoodFragment extends Fragment {
         rv_product_list = view.findViewById(R.id.rv_product_list);
         layoutManager = new LinearLayoutManager(getActivity());
         rv_product_list.setLayoutManager(layoutManager);
-        foodAdapter = new FoodAdapter(mFoodList);
+        foodAdapter = new FoodAdapter(getActivity(),mFoodList);
         rv_product_list.setAdapter(foodAdapter);
         return view;
     }
