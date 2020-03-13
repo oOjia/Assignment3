@@ -7,6 +7,8 @@ import androidx.fragment.app.FragmentTransaction;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.res.Configuration;
 import android.os.Bundle;
 import android.view.Menu;
@@ -14,6 +16,7 @@ import android.view.MenuItem;
 
 import android.util.Log;
 import android.view.View;
+import android.widget.Spinner;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,11 +33,10 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
-//    private SharedPreferences sharedPref;
+    public SharedPreferences sharedPref;
     private ArrayList<Foods> products = new ArrayList<Foods>();
     private FoodsAdapter foodsAdpt;
     private RecyclerView.LayoutManager layoutManager;
@@ -49,6 +51,7 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        sharedPref = this.getPreferences(Context.MODE_PRIVATE);
         ((BottomNavigationView)findViewById(R.id.navi_menu)).setOnNavigationItemSelectedListener(this);
 
 
@@ -65,7 +68,12 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
     }
-
+    public void setPreferClick(View view) {
+        Spinner s_meal = (Spinner) findViewById(R.id.spinner_meal);
+        SharedPreferences.Editor editor = sharedPref.edit();
+        editor.putString("prefer", s_meal.getSelectedItem().toString());
+        editor.commit();
+    }
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
