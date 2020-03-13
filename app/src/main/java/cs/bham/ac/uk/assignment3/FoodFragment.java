@@ -12,6 +12,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
+import android.widget.Toast;
 
 import com.android.volley.Request;
 import com.android.volley.RequestQueue;
@@ -30,10 +31,11 @@ import java.util.ArrayList;
 /**
  * A simple {@link Fragment} subclass.
  */
-public class FoodFragment extends Fragment {
+public class FoodFragment extends Fragment implements View.OnClickListener {
 
-    private Button button;
+    private Button btn_request;
     private ArrayList<Foods> products = new ArrayList<Foods>();
+    private RecyclerView rv_product_list;
     private FoodsAdapter foodsAdpt;
     private RecyclerView.LayoutManager layoutManager;
 
@@ -44,10 +46,20 @@ public class FoodFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-//        View view = inflater.inflate(R.layout.fragment_food, null);
-//        button = (Button) view.findViewById(R.id.button);
+        View view = inflater.inflate(R.layout.fragment_food, container, false);
+        btn_request = view.findViewById(R.id.btn_request);
+        btn_request.setOnClickListener(this);
+        rv_product_list = view.findViewById(R.id.rv_product_list);
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_food, container, false);
+        return view;
     }
 
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.btn_request:
+                Toast.makeText(getActivity(), "hhh", Toast.LENGTH_SHORT).show();
+                break;
+        }
+    }
 }
