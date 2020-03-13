@@ -1,4 +1,4 @@
-package cs.bham.ac.uk.assignment3;
+package cs.bham.ac.uk.assignment3.ui.fragment;
 
 
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Spinner;
 import android.widget.TextView;
+
+import cs.bham.ac.uk.assignment3.R;
 
 
 /**

@@ -34,12 +34,13 @@ import com.google.android.material.bottomnavigation.BottomNavigationView;
 import java.util.ArrayList;
 import java.util.Collections;
 
+import cs.bham.ac.uk.assignment3.ui.fragment.FavoriteFragment;
+import cs.bham.ac.uk.assignment3.ui.fragment.FoodFragment;
+import cs.bham.ac.uk.assignment3.ui.fragment.SettingFragment;
+
 public class MainActivity extends AppCompatActivity implements BottomNavigationView.OnNavigationItemSelectedListener  {
 
     public SharedPreferences sharedPref;
-    private ArrayList<Foods> products = new ArrayList<Foods>();
-    private FoodsAdapter foodsAdpt;
-    private RecyclerView.LayoutManager layoutManager;
 
     FoodFragment foodF = new FoodFragment();
     SettingFragment settingF = new SettingFragment();
@@ -58,22 +59,8 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
         if (savedInstanceState == null) {
             fm.beginTransaction().add(R.id.frame_layout, foodF).commit();
         }
-        foodsAdpt = new FoodsAdapter(products);
-//        RecyclerView listView = (RecyclerView) getSupportFragmentManager().findFragmentById(R.id.food).getView().findViewById(R.id.productList);
-        RecyclerView listView = (RecyclerView) findViewById(R.id.productList);
-
-        layoutManager = new LinearLayoutManager(this);
-        listView.setLayoutManager(layoutManager);
-        listView.setAdapter(foodsAdpt);
-
-
     }
-    public void setPreferClick(View view) {
-        Spinner s_meal = (Spinner) findViewById(R.id.spinner_meal);
-        SharedPreferences.Editor editor = sharedPref.edit();
-        editor.putString("prefer", s_meal.getSelectedItem().toString());
-        editor.commit();
-    }
+
     @Override
     public void onConfigurationChanged(Configuration newConfig) {
         super.onConfigurationChanged(newConfig);
@@ -130,19 +117,6 @@ public class MainActivity extends AppCompatActivity implements BottomNavigationV
 
 
     private void populateList(JSONArray items, String sort){
-        products.clear();
 
-        try{
-            for (int i =0; i<items.length();i++) {
-                JSONObject jo = items.getJSONObject(i);
-                products.add(new Foods(jo.getString("name"),jo.getString("meal"),jo.getInt("id"),jo.getInt("time")));
-            }
-            Log.i(",,,,",products.toString());
-            if(sort == "asc"){
-                Collections.sort(products);
-            }
-        }
-        catch(JSONException err){}
-        foodsAdpt.notifyDataSetChanged();
     }
 }
