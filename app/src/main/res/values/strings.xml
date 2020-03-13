@@ -7,11 +7,19 @@
     <!-- TODO: Remove or change this placeholder text -->
     <string name="food_fragment">Hello food fragment</string>
     <string name="favorite_fragment">Hello favorite fragment</string>
-    <string name="setting_fragment">Hello setting fragment</string>
+    <string name="setting_fragment">Welcome to the setting page</string>
 
-    <string-array name="prefer">
+    <string name="mealPre">Please select the meal you prefer</string>
+    <string name="timePre">Please select the time you prefer</string>
+
+    <string-array name="mealPrefer">
         <item>Breakfast</item>
         <item>Lunch</item>
         <item>Dinner</item>
     </string-array>
+    <string-array name="timePrefer">
+        <item>Time less to more</item>
+        <item>Time more to less</item>
+    </string-array>
+
 </resources>

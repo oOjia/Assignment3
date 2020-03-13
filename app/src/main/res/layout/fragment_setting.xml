@@ -4,11 +4,52 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     tools:context=".SettingFragment">
+    <LinearLayout
+        android:layout_width="300dip"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center"
+        android:layout_gravity="center"
+        >
 
-    <!-- TODO: Update blank fragment layout -->
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:height="30dp"
+            android:text="@string/mealPre"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinner"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:entries="@array/mealPrefer" />
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginBottom="30dp"
+            android:text="@string/timePre"
+            android:textSize="16sp" />
+
+        <Spinner
+            android:id="@+id/spinner2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:entries="@array/timePrefer" />
+
+
+    </LinearLayout>
+
     <TextView
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/setting_fragment" />
+        android:layout_height="30dp"
+        android:layout_marginTop="40dp"
+        android:text="@string/setting_fragment"
+        android:textAlignment="center"
+        android:textSize="24sp" />
 
 </FrameLayout>
