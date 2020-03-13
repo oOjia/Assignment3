@@ -1,0 +1,17 @@
+<resources>
+    <string name="app_name">Assignment3</string>
+    <string name="food">Food</string>
+    <string name="setting">Setting</string>
+    <string name="favorite">Favorite</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="food_fragment">Hello food fragment</string>
+    <string name="favorite_fragment">Hello favorite fragment</string>
+    <string name="setting_fragment">Hello setting fragment</string>
+
+    <string-array name="prefer">
+        <item>Breakfast</item>
+        <item>Lunch</item>
+        <item>Dinner</item>
+    </string-array>
+</resources>
